@@ -15,7 +15,7 @@ class Html {
      * 'xhtml1.1' XHTML 1.1
      * @return type
      */
-    function setDoctype($doctype) {
+    function doctype($doctype) {
         switch ($doctype) {
             case 'html5' :
                 $r = '<!DOCTYPE html>';
@@ -41,6 +41,9 @@ class Html {
             case 'xhtml1.1':
                 $r = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">';
                 break;
+            default :
+                $r = '<!DOCTYPE html>';
+            break;
         }
         return $r;
     }
@@ -50,7 +53,7 @@ class Html {
      * @param type $content
      * @return string
      */
-    function setHtml($content) {
+    function html($content) {
         $r = '<html>' . $content . '</html>';
         return $r;
     }
@@ -60,7 +63,7 @@ class Html {
      * @param type $title
      * @return string
      */
-    function setTitle($title) {
+    function title($title) {
         $r = '<title>' . $title . '</title>';
         return $r;
     }
@@ -71,17 +74,17 @@ class Html {
      * charset      character_set    Specifies the character encoding for the HTML document
      * content      text             Gives the value associated with the http-equiv or name attribute
      * http-equiv   content-type     Provides an HTTP header for the information/value of the content attribute
-      default-style
-      refresh
+     * default-style
+     * refresh
      * name         application-name Specifies a name for the metadata
-      author
-      description
-      generator
-      keywords
+     * author
+     * description
+     * generator
+     * keywords
      * scheme       format/URI       Not supported in HTML5. Specifies a scheme to be used to interpret the value of the content attribute
      * @return string
      */
-    function setMeta($attribute = array()) {
+    function meta($attribute = array()) {
         $r = '<meta';
         foreach ($attribute as $k => $v) {
             $r.=' ' . $k . '="' . $v . '"';
@@ -95,7 +98,7 @@ class Html {
      * @param type $attribute
      * @return string
      */
-    function setLink($attribute = array()) {
+    function link($attribute = array()) {
         $r = '<link';
         foreach ($attribute as $k => $v) {
             $r.=' ' . $k . '="' . $v . '"';
@@ -109,7 +112,7 @@ class Html {
      * @param type $attribute
      * @return string
      */
-    function setimg($attribute = array()) {
+    function img($attribute = array()) {
         $r = '<img';
         foreach ($attribute as $k => $v) {
             $r.=' ' . $k . '="' . $v . '"';
@@ -124,7 +127,7 @@ class Html {
      * @param type $attribute
      * @return string
      */
-    function setScript($content, $attribute = array()) {
+    function script($content, $attribute = array()) {
         $r = '<script';
         foreach ($attribute as $k => $v) {
             $r.=' ' . $k . '="' . $v . '"';
@@ -139,7 +142,7 @@ class Html {
      * @param type $attribute
      * @return string
      */
-    function setDiv($content, $attribute = array()) {
+    function div($content, $attribute = array()) {
         $r = '<div';
         foreach ($attribute as $k => $v) {
             $r.=' ' . $k . '="' . $v . '"';
@@ -153,11 +156,11 @@ class Html {
      * @param type $content
      * @param type $attribute :
      * media	media_query	Specifies what media/device the media resource is optimized for
-      scoped	scoped          Specifies that the styles only apply to this element's parent element and that element's child elements
-      type	text/css	Specifies the MIME type of the style sheet
+     * scoped	scoped          Specifies that the styles only apply to this element's parent element and that element's child elements
+     * type	text/css	Specifies the MIME type of the style sheet
      * @return string
      */
-    function setStyle($content, $attribute = array()) {
+    function style($content, $attribute = array()) {
         $r = '<style';
         foreach ($attribute as $k => $v) {
             $r.=' ' . $k . '="' . $v . '"';
@@ -176,7 +179,7 @@ class Html {
      * @param type $alternColor
      * @return string
      */
-    function setTable($fields, $title = array(), $attributesTD = array(), $attributesTR = array(), $attributesTable = array(), $alternColor = false, $nomId = '') {
+    function table($fields, $title = array(), $attributesTD = array(), $attributesTR = array(), $attributesTable = array(), $alternColor = false, $nomId = '') {
 
         $r = '<table ';
         foreach ($attributesTable as $k => $v) {
@@ -255,7 +258,7 @@ class Html {
      * @param type $attributesUL
      * @return string
      */
-    function setList($type, $fields, $attributesLI = array(), $attributesUL = array()) {
+    function list($type, $fields, $attributesLI = array(), $attributesUL = array()) {
         $r = '<' . $type . '>';
         foreach ($fields as $k => $v) {
             $r .= '<li name = "' . $k . '">' . $v . '</li>';
@@ -268,7 +271,7 @@ class Html {
      * 
      * @return string
      */
-    function setheader($content) {
+    function header($content) {
         return '<head>' . $content . '</head>';
     }
 
