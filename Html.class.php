@@ -2,6 +2,10 @@
 
 class Html {
 
+    function __construct()
+    {
+        
+    }
     /**
      * 
      * @param type $doctype
