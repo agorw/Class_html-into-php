@@ -15,7 +15,7 @@ class Html {
      * 'xhtml1.1' XHTML 1.1
      * @return type
      */
-    function doctype($doctype) {
+    public static function doctype($doctype) {
         switch ($doctype) {
             case 'html5' :
                 $r = '<!DOCTYPE html>';
@@ -53,7 +53,7 @@ class Html {
      * @param type $content
      * @return string
      */
-    function html($content) {
+    public static function html($content) {
         $r = '<html>' . $content . '</html>';
         return $r;
     }
@@ -63,7 +63,7 @@ class Html {
      * @param type $title
      * @return string
      */
-    function title($title) {
+    public static function title($title) {
         $r = '<title>' . $title . '</title>';
         return $r;
     }
@@ -84,7 +84,7 @@ class Html {
      * scheme       format/URI       Not supported in HTML5. Specifies a scheme to be used to interpret the value of the content attribute
      * @return string
      */
-    function meta($attribute = array()) {
+    public static function meta($attribute = array()) {
         $r = '<meta';
         foreach ($attribute as $k => $v) {
             $r.=' ' . $k . '="' . $v . '"';
@@ -98,7 +98,7 @@ class Html {
      * @param type $attribute
      * @return string
      */
-    function link($attribute = array()) {
+    public static function link($attribute = array()) {
         $r = '<link';
         foreach ($attribute as $k => $v) {
             $r.=' ' . $k . '="' . $v . '"';
@@ -112,7 +112,7 @@ class Html {
      * @param type $attribute
      * @return string
      */
-    function img($attribute = array()) {
+    public static function img($attribute = array()) {
         $r = '<img';
         foreach ($attribute as $k => $v) {
             $r.=' ' . $k . '="' . $v . '"';
@@ -127,7 +127,7 @@ class Html {
      * @param type $attribute
      * @return string
      */
-    function script($content, $attribute = array()) {
+    public static function script($content, $attribute = array()) {
         $r = '<script';
         foreach ($attribute as $k => $v) {
             $r.=' ' . $k . '="' . $v . '"';
@@ -142,7 +142,7 @@ class Html {
      * @param type $attribute
      * @return string
      */
-    function div($content, $attribute = array()) {
+    public static function div($content, $attribute = array()) {
         $r = '<div';
         foreach ($attribute as $k => $v) {
             $r.=' ' . $k . '="' . $v . '"';
@@ -160,7 +160,7 @@ class Html {
      * type	text/css	Specifies the MIME type of the style sheet
      * @return string
      */
-    function style($content, $attribute = array()) {
+    public static function style($content, $attribute = array()) {
         $r = '<style';
         foreach ($attribute as $k => $v) {
             $r.=' ' . $k . '="' . $v . '"';
@@ -179,7 +179,7 @@ class Html {
      * @param type $alternColor
      * @return string
      */
-    function table($fields, $title = array(), $attributesTD = array(), $attributesTR = array(), $attributesTable = array(), $alternColor = false, $nomId = '') {
+    public static function table($fields, $title = array(), $attributesTD = array(), $attributesTR = array(), $attributesTable = array(), $alternColor = false, $nomId = '') {
 
         $r = '<table ';
         foreach ($attributesTable as $k => $v) {
@@ -258,7 +258,7 @@ class Html {
      * @param type $attributesUL
      * @return string
      */
-    function list($type, $fields, $attributesLI = array(), $attributesUL = array()) {
+    public static function list($type, $fields, $attributesLI = array(), $attributesUL = array()) {
         $r = '<' . $type . '>';
         foreach ($fields as $k => $v) {
             $r .= '<li name = "' . $k . '">' . $v . '</li>';
@@ -271,7 +271,7 @@ class Html {
      * 
      * @return string
      */
-    function header($content) {
+    public static function header($content) {
         return '<head>' . $content . '</head>';
     }
 
@@ -279,7 +279,7 @@ class Html {
      * 
      * @return string
      */
-    function body($content) {
+    public static function body($content) {
         return '<body>' . $content . '</body>';
     }
 
@@ -287,7 +287,7 @@ class Html {
      * 
      * @return string
      */
-    function br() {
+    public static function br() {
         return '<br/>';
     }
 
